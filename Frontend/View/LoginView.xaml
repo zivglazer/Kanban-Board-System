@@ -1,0 +1,73 @@
+﻿<Window x:Class="Frontend.View.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Kanban - Login" Height="450" Width="350"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Background="#F5F5F5">
+        <StackPanel Margin="30" VerticalAlignment="Center">
+            
+            <TextBlock Text="Kanban Board" 
+                       FontSize="28" 
+                       FontWeight="Bold" 
+                       HorizontalAlignment="Center" 
+                       Margin="0,0,0,30"/>
+
+            
+            <TextBlock Text="Email:" 
+                       Margin="0,0,0,5" 
+                       FontWeight="SemiBold"/>
+            <TextBox x:Name="Email"
+                     Height="30" 
+                     Padding="5,0" 
+                     VerticalContentAlignment="Center"
+                     Text="{Binding Path = Email, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+
+            
+            <TextBlock Text="Password:" 
+                       Margin="0,15,0,5" 
+                       FontWeight="SemiBold"/>
+            <PasswordBox x:Name="PasswordBox"
+                            Height="30"
+                            Padding="5,0"
+                            VerticalContentAlignment="Center"/>
+
+
+            
+            <TextBlock Text="{Binding ErrorMessage}" 
+                       Foreground="Red" 
+                       TextWrapping="Wrap" 
+                       Margin="0,15,0,0"
+                       MinHeight="40"/>
+
+            
+            <Grid Margin="0,15,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="Login" 
+                        Grid.Column="0"
+                        Height="35" 
+                        Margin="0,0,5,0"
+                        Background="#007ACC" 
+                        Foreground="White"
+                        Command="{Binding LoginCommand}"
+                        CommandParameter="{Binding ElementName=PasswordBox, Path=Password}" VerticalAlignment="Top" Click="LoginButton_Click"/>
+
+                <Button Content="Register" 
+                        Grid.Column="1"
+                        Height="35" 
+                        Margin="5,0,0,0"
+                        Background="#4CAF50" 
+                        Foreground="White"
+                        Command="{Binding RegisterCommand}"
+                        CommandParameter="{Binding ElementName=PasswordBox, Path=Password}" Click="RegisterButton_Click"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
