@@ -1,53 +1,49 @@
-# Kanban
+# Full Stack Kanban Board System
 
-Kanban Board System
+A full stack task management application implemented in C# as part of a Software Engineering degree at Ben Gurion University of the Negev. The system demonstrates practical application of modern software architecture patterns and comprehensive testing across the stack.
 
-A full-stack Kanban board application designed to streamline task management and workflow visualization. Built as a comprehensive academic project (Group 44), this system demonstrates strong software engineering principles, including an N-Tier architecture, comprehensive testing, and robust logging.
+## Tech stack
 
-Key Highlights for Recruiters
+* C# and .NET
+* MVVM for the frontend
+* N Tier architecture for the backend
+* SQLite for persistence
+* Log4Net for centralized logging and error tracking
 
-Clean Architecture: Separation of concerns using distinct layers for Data, Business logic, and Services.
+## Architecture
 
-Full-Stack Development: Complete implementation from the backend server to the frontend user interface.
+* Frontend: MVVM pattern with Login, Dashboard and Board screens implemented as a desktop client following clear separation of concerns.
+* Backend: N Tier architecture with Data Layer Business Layer and Service Layer that expose a service API for the client and encapsulate business rules.
+* Database: SQLite provides a lightweight durable store for boards columns tasks and user data.
+* Logging: Log4Net is used for system wide logging and error tracking across layers.
 
-Test-Driven Approach: Extensive test coverage across different layers (BusinessLayerTests, ServiceLayerTests, and FrontendTests1).
+## Features
 
-Production-Ready Practices: Integrated logging using log4net and a structured Visual Studio solution environment.
+* User authentication and session handling
+* Dashboard with an overview of boards and activity
+* Board view with multiple columns and task management
+* Create read update and delete operations for tasks and columns
+* Board membership and simple user management
+* Persistent data storage with SQLite
+* Centralized logging for diagnostics and traceability
 
-Architecture & Technologies
+## Testing
 
-Backend: C# / .NET (Structured via Kanban.sln)
+Comprehensive unit and integration tests cover business logic service layer API and client side ViewModels. Relevant test projects include BusinessLayerTests ServiceLayerTests and FrontendTests1.
 
-Database: Local database integration (kanban.db)
+## How to run
 
-Logging: log4net for application monitoring and debugging
+Provide local setup and run instructions here. Example commands you can adapt for this solution:
 
-Testing: Dedicated test suites for Business, Service, and Frontend layers.
+```bash
+cd Backend
+dotnet build
+dotnet run
+```
 
-Version Control: Git with configured .gitignore and CODEOWNERS for team collaboration.
+Replace the example commands with the exact project and configuration details for your environment.
 
-Project Structure
+---
 
-Backend/ - Contains the core server logic, API endpoints, and request handling.
+For more details see the source folders Backend Frontend Data and ServiceLayer in the repository.
 
-Frontend/ - Client-side application for the user interface.
-
-Data/ - Data access layer handling interactions with kanban.db.
-
-Documents/ - Project documentation, requirements, and academic deliverables.
-
-BusinessLayerTests/ - Unit and integration tests for core business logic.
-
-ServiceLayerTests/ - Tests validating the service API layer.
-
-FrontendTests1/ - Automated tests for the user interface and client logic.
-
-Getting Started
-
-Clone the repository to your local machine.
-
-Open Kanban.sln in Visual Studio.
-
-Restore NuGet packages and build the solution.
-
-Run the Backend and Frontend projects simultaneously to launch the application.
